@@ -1,0 +1,109 @@
+{
+    /* Workbench Settings */
+    "window.zoomLevel": 0.2,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Horizon Bold",
+    "workbench.productIconTheme": "icons-carbon",
+    "symbols.hidesExplorerArrows": true,
+    "workbench.iconTheme": "symbols",
+    "editor.fontFamily": "Inter, JetBrains Mono, Consolas, 'Courier New', monospace",
+    "editor.fontSize": 14, // (default: 14; optional: 17)
+    "editor.lineHeight": 1.8, // (default: 1.8; optional: 35)
+    "editor.letterSpacing": 1, // (default: 1; optional: 0.7)
+    //"editor.fontLigatures": true,
+    "editor.fontWeight": "bold",
+    "editor.inlineSuggest.enabled": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "block",
+    "editor.rulers": [80, 120],
+    "editor.renderLineHighlight": "gutter",
+    "workbench.editor.labelFormat": "short",
+    "editor.minimap.enabled": false,
+    //"editor.scrollbar.vertical": "hidden",
+    //"editor.scrollbar.horizontal": "hidden",
+    "explorer.compactFolders": true,
+    "workbench.statusBar.visible": true,
+    //"editor.semanticHighlighting.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.activityBar.location": "top",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        //"*.ts": "${capture}.js",
+        //"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        //"*.jsx": "${capture}.js",
+        //"*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json, tsconfig*, vite*",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, pnpm-lock.json, .eslint*, .prettierrc*, .stylelintrc*, .babelrc*, .browserslistrc*",
+        "tailwind.config*": "tailwind.config*, postcss.config*",
+        "webpack.config*": "webpack.config*, vite.config*, rollup.config*",
+        ".env": ".env*, .env.local*"
+    },
+    /* Terminal Settings */
+    "terminal.integrated.fontSize": 14,
+    //"terminal.integrated.fontWeight": "bold",
+    "terminal.integrated.letterSpacing": 1, // (default: 1; optional: 0.7)
+    "terminal.integrated.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace", // for terminal icons only
+    "terminal.integrated.cursorStyle": "block",
+    "terminal.integrated.cursorBlinking": false,
+    /* APC Extension Settings */
+    "apc.electron": {
+        "titleBarStyle": "hiddenInset",
+        "frame": false
+    },
+    "apc.header": {
+        "height": 36
+    },
+    "apc.listRow": {
+        "height": 24
+    },
+    "apc.font.family": "JetBrains Mono",
+    "apc.stylesheet": {
+        ".title-label > h2": "display: none;",
+        ".editor-actions": "display: none;",
+        ".pane-body": "padding: 8px;",
+        ".pane-header": "padding: 0 8px;"
+    },
+    /* Other Settings */
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true,
+        "haskell": true,
+        "makefile": true,
+        "dockerfile": true,
+        "shellscript": true,
+        "powershell": true
+    },
+    "todohighlight.keywords": [
+        "DEBUG:",
+        {
+            "text": ">>",
+            "isWholeLine": false,
+            "backgroundColor": "rgba(0,0,0,.5)"
+        },
+        {
+            "text": "REVIEW:",
+            "isWholeLine": true,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        },
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "HACK:",
+            "isWholeLine": false,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        },
+        {
+            "text": "Exercicio:",
+            "isWholeLine": true,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        }
+    ]
+}

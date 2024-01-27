@@ -1,0 +1,106 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.iconTheme": "material-icon-theme",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.integrated.rendererType": "dom",
+    "glassit.alpha": 220,
+    "powermode.enabled": true,
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": ""
+        }
+    ],
+    "editor.fontSize": 17,
+    "tabnine.experimentalAutoImports": true,
+    "terminal.integrated.gpuAcceleration": "on",
+    "vscode_vibrancy.opacity": 1,
+    "vscode_vibrancy.theme": "Default Dark",
+    "editor.fontWeight": "bold",
+    "editor.lineHeight": 35,
+    "editor.inlineSuggest.enabled": true,
+    "editor.fontLigatures": true,
+    "editor.cursorSurroundingLines": 3,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "phase",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true,
+        "haskell": false,
+        "makefile": true
+    },
+    "todohighlight.keywords": [
+        "DEBUG:",
+        {
+            "text": ">>",
+            "isWholeLine": false,
+            "backgroundColor": "rgba(0,0,0,.5)"
+        },
+        {
+            "text": "REVIEW:",
+            "isWholeLine": true,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        },
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "HACK:",
+            "isWholeLine": false,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        },
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "Exercicio:",
+            "isWholeLine": true,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        }
+    ],
+    "git.ignoreMissingGitWarning": true,
+    "explorer.confirmDelete": false,
+    "snyk.yesWelcomeNotification": false,
+    "powermode.shake.enabled": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "editor.cursorStyle": "block",
+    "haskell.manageHLS": "GHCup",
+    "explorer.confirmDragAndDrop": false,
+    "powermode.presets": "flames",
+    "react-native-tools.showUserTips": false,
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "editor.accessibilitySupport": "off",
+    "js/ts.implicitProjectConfig.experimentalDecorators": true,
+    "powermode.combo.location": "statusbar",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "lldb.suppressUpdateNotifications": true,
+    "workbench.colorTheme": "Horizon Bold",
+    "window.titleBarStyle": "custom",
+    "C_Cpp.default.compilerPath": "",
+    "C_Cpp.intelliSenseEngineFallback": "enabled",
+    "git.openRepositoryInParentFolders": "never",
+    "git.ignoreLegacyWarning": true,
+    "redhat.telemetry.enabled": true,
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "cody.commandCodeLenses": true,
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "json.schemas": []
+}
