@@ -3,7 +3,8 @@
 # Ask for the administrator password upfront
 sudo -v
 
-$WALLPAPER_NAME="Monterey-nord.png"
+WALLPAPER_NAME="Monterey-nord.png"
+SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" # Get the path of the current script
 
 function install_customtheme() {
     echo "Installing the WhiteSur GTK and icon themes..."
@@ -42,7 +43,7 @@ function install_customtheme() {
     cd WhiteSur-gtk-theme/
     ./install.sh -i simple # or all the themes: ./install.sh -t all
     ./tweaks.sh -f monterey # Customizes firefox theme
-    cp -r Wallpapers/ ~/CustomGTKThemes/ # Copy this "Wallpapers" to the "CustomGTKTheme/Wallpapers" directory
+    cp -r $SCRIPTPATH/Wallpapers/ ~/CustomGTKThemes/ # Copy this "Wallpapers" to the "CustomGTKTheme/Wallpapers" directory
     sudo ./tweaks.sh -g -b "../Wallpapers/$WALLPAPER_NAME" # Customizes GDM theme
     gsettings set org.gnome.desktop.background picture-uri "file:///home/$USER/CustomGTKThemes/Wallpapers/$WALLPAPER_NAME"
     gsettings set org.gnome.desktop.background picture-uri-dark "file:///home/$USER/CustomGTKThemes/Wallpapers/$WALLPAPER_NAME"
@@ -53,6 +54,7 @@ function install_customtheme() {
     cd WhiteSur-icon-theme/
     ./install.sh -a # Install icon theme
 
+    cd $SCRIPTPATH/
     # Import dconf settings
     dconf load / < dconf-settings.ini
 
