@@ -89,15 +89,16 @@ function install_customgetapps() {
 
 function install_extraapps() {
     echo "Installing extra apps..."
-    sudo apt install -y vlc gimp
+    AptAppList=("vlc" # VLC Media Player
+        "gimp" # GIMP
+    )
+    sudo apt install -y ${AptAppList[@]}
     sudo apt install snapd -y
     SnapAppList=("code" # VS Code
         "discord" # Discord
         "spotify" # Spotify
     )
-    for app in "${SnapAppList[@]}"; do
-        sudo snap install $app
-    done
+    sudo snap install ${SnapAppList[@]}
     # Install Custom Get Apps
     install_customgetapps
 }
