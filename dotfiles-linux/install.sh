@@ -131,13 +131,13 @@ function install_proglangs() {
     # Install "Java 21 SDK" (for Debian-based distros only)
     wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb -O jdk-21_linux-x64_bin.deb
     sudo apt install -y ./jdk-21_linux-x64_bin.deb
-    rm jdk-21_linux-x64_bin.deb
+    sudo rm -f jdk-21_linux-x64_bin.deb
     # Install "Go"
     sudo apt install -y golang-go
 }
 
 # Ask user if he wants to install programming languages
-echo "Do you want to install some programming languages supports? (Y/n)"
+echo "Do you want to install some programming language support? (Y/n)"
 read -r response
 if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     install_proglangs
