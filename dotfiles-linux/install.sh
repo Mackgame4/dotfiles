@@ -98,7 +98,9 @@ function install_extraapps() {
         "discord" # Discord
         "spotify" # Spotify
     )
-    sudo snap install ${SnapAppList[@]}
+    for app in "${SnapAppList[@]}"; do
+        sudo snap install $app
+    done
     # Install Custom Get Apps
     install_customgetapps
 }
