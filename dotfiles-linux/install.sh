@@ -22,7 +22,7 @@ function install_customtheme() {
     sudo mv gnome-shell-extension-installer /usr/bin/
 
     # Install and enable GNOME Shell Extensions
-    mkdir InstalledShellExtensions
+    mkdir -p InstalledShellExtensions
     cd InstalledShellExtensions
     gnome-shell-extension-installer 19 307 3193 6 8 --yes --no-install
     gnome-extensions install blur-my-shell@aunetx.shell-extension.zip
@@ -54,7 +54,7 @@ function install_customtheme() {
     ./install.sh -a # Install icon theme
 
     # Import dconf settings
-    #dconf load / < dconf-settings.ini
+    dconf load / < dconf-settings.ini
 
     # Restart GNOME Shell
     #killall -SIGQUIT gnome-shell
