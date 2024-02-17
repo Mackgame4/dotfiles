@@ -68,3 +68,45 @@ read -r response
 if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     install_customtheme
 fi
+
+function install_customgetapps() {
+    echo "Installing Custom Get Apps..."
+    # Create a folder to store the installers
+    mkdir -p ~/CustomGetApps
+    cd ~/CustomGetApps
+    # Install "Github Desktop"
+    wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
+    sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
+    sudo apt update && sudo apt install github-desktop -y
+    # Install "Google Chrome"
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    sudo apt install -f -y
+    # Delete the installers
+    rm -rf ~/CustomGetApps
+    cd $SCRIPTPATH/
+}
+
+function install_extraapps() {
+    echo "Installing extra apps..."
+    sudo apt install -y vlc gimp
+    sudo apt install snapd -y
+    SnapAppList=("code" # VS Code
+        "discord" # Discord
+        "spotify" # Spotify
+    )
+    for app in "${SnapAppList[@]}"; do
+        sudo snap install $app
+    done
+    # Install Custom Get Apps
+    install_customgetapps
+}
+
+# Ask user if he wants to install extra apps
+echo "Do you want to install extra apps? (Y/n)"
+read -r response
+if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    install_extraapps
+fi
+
+echo "Installation complete!"
