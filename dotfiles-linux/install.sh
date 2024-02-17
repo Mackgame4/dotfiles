@@ -123,6 +123,7 @@ function install_proglangs() {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
     source ~/.bashrc
     nvm install --lts
+    #sudo apt install -y nodejs
     #sudo apt install -y npm
     # Install "Python" and "pip"
     sudo apt install -y python3 python3-pip
