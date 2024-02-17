@@ -3,21 +3,14 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# Ask user if he wants to install the "WhiteSur" GTK and icon themes
-echo "Do you want to install the WhiteSur GTK and icon themes? (Y/n)"
-read -r response
-if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    INSTALL_CUSTOMTHEME=true
-else
-    INSTALL_CUSTOMTHEME=false
-fi
+$WALLPAPER_NAME="Monterey-nord.png"
 
-if [ "$INSTALL_CUSTOMTHEME" = true ]; then
+function install_customtheme() {
     echo "Installing the WhiteSur GTK and icon themes..."
     # Update and install basic packages
     sudo apt upgrade -y
     sudo apt update -y
-    sudo apt install git curl dconf dconf-editor gnome-tweaks -y # gnome-shell-extension-manager (is optional, but doesnt work with "gnome-shell-extension-installer")
+    sudo apt install git curl dconf-editor gnome-tweaks gnome-shell-extensions -y # gnome-shell-extension-manager (is optional, but doesnt work with "gnome-shell-extension-installer"); and dconf (already installed by default in Ubuntu)
 
     # Create a directory for custom themes
     mkdir -p ~/CustomGTKThemes
@@ -49,60 +42,27 @@ if [ "$INSTALL_CUSTOMTHEME" = true ]; then
     cd WhiteSur-gtk-theme/
     ./install.sh -i simple # or all the themes: ./install.sh -t all
     ./tweaks.sh -f monterey # Customizes firefox theme
-    sudo ./tweaks.sh -g # Customizes GDM theme
-    sudo ./tweaks.sh -g -b default # Customizes GDM background
+    cp -r Wallpapers/ ~/CustomGTKThemes/ # Copy this "Wallpapers" to the "CustomGTKTheme/Wallpapers" directory
+    sudo ./tweaks.sh -g -b "../Wallpapers/$WALLPAPER_NAME" # Customizes GDM theme
+    gsettings set org.gnome.desktop.background picture-uri "file:///home/$USER/CustomGTKThemes/Wallpapers/$WALLPAPER_NAME"
+    gsettings set org.gnome.desktop.background picture-uri-dark "file:///home/$USER/CustomGTKThemes/Wallpapers/$WALLPAPER_NAME"
+    # lock screen
+    gsettings set org.gnome.desktop.screensaver picture-uri "file:///home/$USER/CustomGTKThemes/Wallpapers/$WALLPAPER_NAME"
     cd ..
     git clone https://github.com/vinceliuice/WhiteSur-icon-theme
     cd WhiteSur-icon-theme/
     ./install.sh -a # Install icon theme
 
     # Import dconf settings
-    dconf load / < dconf-settings.ini
+    #dconf load / < dconf-settings.ini
 
     # Restart GNOME Shell
-    killall -SIGQUIT gnome-shell
-fi
+    #killall -SIGQUIT gnome-shell
+}
 
-# Ask user if he wants to install extra apps
-echo "Do you want to install extra apps? (Y/n)"
+# Ask user if he wants to install the "WhiteSur" GTK and icon themes
+echo "Do you want to install the WhiteSur GTK and icon themes? (Y/n)"
 read -r response
 if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    INSTALL_EXTRAAPPS=true
-else
-    INSTALL_EXTRAAPPS=false
-fi
-
-if [ "$INSTALL_EXTRAAPPS" = true ]; then
-    echo "Installing extra apps..."
-    # Update and install basic packages
-    sudo apt upgrade -y
-    #sudo apt update -y
-    #sudo apt install snapd -y
-    #sudo apt install vlc gimp inkscape krita blender audacity obs-studio kdenlive krita kdenlive -y
-    #sudo snap install spotify
-    #sudo snap install discord
-    #sudo snap install code
-    # or, using a more modern way to install apps:
-
-    # Install Flatpak
-    sudo add-apt-repository ppa:flatpak/stable
-    sudo apt update -y
-    sudo apt install flatpak -y
-    sudo apt install gnome-software-plugin-flatpak -y
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-    # Install apps
-    flatpak_apps=(
-        "org.videolan.VLC"
-        "org.gimp.GIMP"
-        "com.google.Chrome"
-        "com.visualstudio.code"
-        "com.discordapp.Discord"
-        "com.spotify.Client"
-        # Add more apps to this list as needed
-    )
-    flatpak install flathub ${flatpak_apps[@]} -y
-
-    # Install sub-apps
-    sudo apt install gparted neofetch -y
+    install_customtheme
 fi
