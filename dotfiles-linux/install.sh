@@ -95,6 +95,7 @@ if [ "$INSTALL_EXTRAAPPS" = true ]; then
     flatpak_apps=(
         "org.videolan.VLC"
         "org.gimp.GIMP"
+        "com.google.Chrome"
         "com.visualstudio.code"
         "com.discordapp.Discord"
         "com.spotify.Client"
