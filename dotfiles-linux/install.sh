@@ -3,8 +3,10 @@
 # Ask for the administrator password upfront
 sudo -v
 
-WALLPAPER_NAME="Monterey-nord.png"
 SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" # Get the path of the current script
+
+### CUSTOM THEME INSTALLATION ###
+WALLPAPER_NAME="Monterey-nord.png"
 
 function install_customtheme() {
     echo "Installing the WhiteSur GTK and icon themes..."
@@ -69,16 +71,18 @@ if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     install_customtheme
 fi
 
+### CUSTOM APPS INSTALLATION ###
+
 function install_customgetapps() {
     echo "Installing Custom Get Apps..."
     # Create a folder to store the installers
     mkdir -p ~/CustomGetApps
     cd ~/CustomGetApps
-    # Install "Github Desktop"
+    # Install "Github Desktop" app
     wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
     sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
     sudo apt update && sudo apt install github-desktop -y
-    # Install "Google Chrome"
+    # Install "Google Chrome" app
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
     sudo apt install -f -y
@@ -99,7 +103,7 @@ function install_extraapps() {
         "spotify" # Spotify
     )
     for app in "${SnapAppList[@]}"; do
-        sudo snap install $app
+        sudo snap install $app --classic
     done
     # Install Custom Get Apps
     install_customgetapps
@@ -110,6 +114,33 @@ echo "Do you want to install extra apps? (Y/n)"
 read -r response
 if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     install_extraapps
+fi
+
+### CUSTOM PROG LANGUAGE INSTALLATION ###
+function install_proglangs() {
+    echo "Installing programming languages..."
+    # Install "Node.js" and "npm"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    source ~/.bashrc
+    nvm install --lts
+    #sudo apt install -y npm
+    # Install "Python" and "pip"
+    sudo apt install -y python3 python3-pip
+    # Install "Java"
+    #sudo apt install -y default-jre default-jdk
+    # Install "Java 21 SDK" (for Debian-based distros only)
+    wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb -O jdk-21_linux-x64_bin.deb
+    sudo apt install -y ./jdk-21_linux-x64_bin.deb
+    rm jdk-21_linux-x64_bin.deb
+    # Install "Go"
+    sudo apt install -y golang-go
+}
+
+# Ask user if he wants to install programming languages
+echo "Do you want to install some programming languages supports? (Y/n)"
+read -r response
+if [[ -z "$response" || $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    install_proglangs
 fi
 
 echo "Installation complete!"
