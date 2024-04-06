@@ -62,3 +62,12 @@ cd dotfiles
 ./install.sh
 ```
 -->
+
+#### Git (Global) Configuration
+```bash
+git config --global core.autocrlf false
+git config --global gpg.format ssh
+git config --global commit.gpgsign true
+git config --global tag.gpgsign true
+git config --global user.signingkey C:\\Users\\fabio/.ssh/id_rsa (default for Windows using "ssh-keygen")
+```
