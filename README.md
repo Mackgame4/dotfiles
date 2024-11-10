@@ -1,5 +1,5 @@
 # dotfiles
-🔧 My public dotfiles for Linux, Windows, macOS and personal apps.
+_🔧 My public dotfiles for Linux, Windows, macOS and personal apps._
 
 ## File Tree
 ```
