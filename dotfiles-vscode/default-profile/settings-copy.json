@@ -1,0 +1,137 @@
+{
+    // VSCode settings //
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Horizon Bold",
+    "workbench.productIconTheme": "Tabler",
+    "window.titleBarStyle": "custom",
+    "window.customTitleBarVisibility": "auto",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/node_modules": true
+    },
+    "files.associations": {
+        "*.pl": "prolog"
+    },
+    // Editor
+    "editor.suggestSelection": "first",
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.fontFamily": "Consolas, MesloLGS NF, 'Courier New', monospace",
+    "editor.fontSize": 17,
+    "editor.fontWeight": "bold",
+    "editor.lineHeight": 35,
+    "editor.inlineSuggest.enabled": true,
+    "editor.fontLigatures": true,
+    "editor.cursorSurroundingLines": 3,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "block",
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.scrollWithEditor": false,
+    "editor.stickyScroll.maxLineCount": 1,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    // Terminal
+    "terminal.integrated.fontFamily": "Consolas, MesloLGS NF, 'Courier New', monospace",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+        "path": "host-spawn",
+        "args": ["bash"]
+        }
+    },
+    // Extensions settings //
+    // Copilot
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true,
+        "makefile": true,
+        "c": true,
+        "haskell": true,
+        "csv": false
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    // Powermode
+    "powermode.enabled": true,
+    "powermode.shake.enabled": false,
+    "powermode.presets": "flames",
+    "powermode.combo.location": "statusbar",
+    // LiveServer
+    "liveServer.settings.donotShowInfoMsg": true,
+    // TodoHighlight
+    "todohighlight.keywords": [
+        "DEBUG:",
+        {
+            "text": ">>",
+            "isWholeLine": false,
+            "backgroundColor": "rgba(0,0,0,.5)"
+        },
+        {
+            "text": "REVIEW:",
+            "isWholeLine": true,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        },
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "HACK:",
+            "isWholeLine": false,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        },
+        {
+            "text": "NOTE:",
+            "color": "#ff0000",
+            "backgroundColor": "yellow",
+            "overviewRulerColor": "grey"
+        },
+        {
+            "text": "Exercicio:",
+            "isWholeLine": true,
+            "backgroundColor": "rgba(0,0,0,.2)"
+        }
+    ],
+    // GitLens
+    "git.ignoreMissingGitWarning": true,
+    "git.ignoreLegacyWarning": true,
+    "git.openRepositoryInParentFolders": "never",
+    // Language specific settings //
+    // Haskell
+    "haskell.manageHLS": "GHCup",
+    // Svelte
+    "svelte.enable-ts-plugin": true,
+    // Python
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "python.createEnvironment.trigger": "off",
+    // C#
+    "dotnet.workingWithTestSignedSdk": true,
+    "csharp.experimental.debug.hotReload": true,
+    "csharp.preview.improvedLaunchExperience": true,
+    // Javascript
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    // Java
+    "redhat.telemetry.enabled": false,
+    // Makefile
+    "makefile.configureOnOpen": false,
+    // Razor
+    "razor.format.codeBlockBraceOnNextLine": true,
+    "razor.completion.commitElementsWithSpace": true,
+    // mssql
+    "mssql.enableRichExperiences": true,
+    // VueJS
+    "vue.server.hybridMode": "typeScriptPluginOnly",
+}
